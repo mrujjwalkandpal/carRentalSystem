@@ -12,9 +12,10 @@ public abstract class Vehicle {
     private boolean havePapers;
     private boolean haveDamages;
     private boolean isAvailable;
+    private boolean status;
 
     public Vehicle(String registrationNumber, String model, int age,
-                   boolean haveInsurance, boolean havePapers, boolean haveDamages) {
+                   boolean haveInsurance, boolean havePapers, boolean haveDamages, boolean status) {
         this.registrationNumber = registrationNumber;
         this.model = model;
         this.age = age;
@@ -22,11 +23,11 @@ public abstract class Vehicle {
         this.haveInsurance = haveInsurance;
         this.havePapers = havePapers;
         this.haveDamages = haveDamages;
-
+        this.status=status;
         this.isAvailable = age <= AppConstants.MAX_AGE_OF_VEHICLE;
     }
 
-    public abstract double calculateRentalCost(int hours);
+    public abstract double calculateRentalCost(double hours);
 
     // ---------- Getters and Setters ----------
 
@@ -85,4 +86,12 @@ public abstract class Vehicle {
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
+
+	public boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 }
